@@ -504,6 +504,118 @@
                 padding: 3rem 1rem;
             }
         }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* News Section */
+        #news {
+            background: var(--bg-primary);
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .news-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+            min-width: 90px;
+        }
+
+        .news-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .news-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .news-content a:hover {
+            text-decoration: underline;
+        }
+
+        .news-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .badge-accepted {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-released {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-new {
+            background: #fef3c7;
+            color: #92400e;
+        }
     </style>
 </head>
 <body>
@@ -514,6 +626,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
+                <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -584,6 +697,43 @@
                     </div>
                     <h3>Video Generation</h3>
                     <p>Large-scale video generation models (e.g., Wan2.1) for high-quality video synthesis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news">
+        <div class="section-container">
+            <h2 class="section-title fade-in">News</h2>
+            <div class="news-list">
+                <div class="news-item fade-in stagger-1">
+                    <span class="news-date">2026.01</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-accepted">Accepted</span>
+                        <a href="https://arxiv.org/abs/2511.19268" target="_blank">BideDPO</a> accepted to ICLR 2026!
+                    </div>
+                </div>
+                <div class="news-item fade-in stagger-2">
+                    <span class="news-date">2025.07</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-accepted">Accepted</span>
+                        <a href="https://longxiang-ai.github.io/TSGS/" target="_blank">TSGS</a> accepted to ACM Multimedia 2025!
+                    </div>
+                </div>
+                <div class="news-item fade-in stagger-3">
+                    <span class="news-date">2025.05</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-accepted">Accepted</span>
+                        <a href="https://limuloo.github.io/DreamRenderer/" target="_blank">DreamRenderer</a> accepted to ICCV 2025!
+                    </div>
+                </div>
+                <div class="news-item fade-in stagger-4">
+                    <span class="news-date">2023.12</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-released">Released</span>
+                        <a href="https://longxiang-ai.github.io/Human101/" target="_blank">Human101</a> paper and code released on arXiv.
+                    </div>
                 </div>
             </div>
         </div>
@@ -727,5 +877,73 @@
     <footer>
         <p>&copy; 2025 Mingwei Li. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add fade-in class to elements dynamically
+        document.querySelectorAll('.research-card').forEach((card, index) => {
+            card.classList.add('fade-in', `stagger-${index + 1}`);
+            observer.observe(card);
+        });
+
+        document.querySelectorAll('.publication').forEach((pub, index) => {
+            pub.classList.add('fade-in', `stagger-${(index % 4) + 1}`);
+            observer.observe(pub);
+        });
+
+        document.querySelectorAll('.contact-item').forEach((item, index) => {
+            item.classList.add('fade-in', `stagger-${index + 1}`);
+            observer.observe(item);
+        });
+
+        // Section titles
+        document.querySelectorAll('.section-title').forEach(title => {
+            if (!title.classList.contains('fade-in')) {
+                title.classList.add('fade-in');
+                observer.observe(title);
+            }
+        });
+
+        // Smooth navigation highlight
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = 'var(--primary)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
