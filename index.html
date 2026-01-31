@@ -1,266 +1,731 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang="en">
 <head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mingwei Li - Ph.D. Student at Zhejiang University, researching 3D Computer Vision and Deep Learning">
+    <meta property="og:title" content="Mingwei Li - Personal Homepage">
+    <meta property="og:description" content="Ph.D. Student at Zhejiang University">
     <meta property="og:type" content="website">
-<meta property="og:title" content="longxiang-ai">
-<meta property="og:url" content="https://longxiang-ai.github.io/longxiang-ai/index.html">
-<meta property="og:site_name" content="longxiang-ai">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="longxiang">
-<meta name="twitter:card" content="summary">
+    <title>Mingwei Li | 李明伟</title>
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     
-        
-          
-              <link rel="shortcut icon" href="/longxiang-ai/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/longxiang-ai/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/longxiang-ai/images/apple-touch-icon.png">
-          
-        
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- title -->
-    <title>longxiang-ai</title>
-    <!-- styles -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/longxiang-ai/images/favicon.ico">
+    <link rel="icon" type="image/png" href="/longxiang-ai/images/favicon-192x192.png" sizes="192x192">
     
-<link rel="stylesheet" href="/longxiang-ai/lib/font-awesome/css/font-awesome.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #64748b;
+            --accent: #0ea5e9;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
 
-    
-<link rel="stylesheet" href="/longxiang-ai/lib/meslo-LG/styles.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    
-<link rel="stylesheet" href="/longxiang-ai/lib/justified-gallery/justifiedGallery.min.css">
+        html {
+            scroll-behavior: smooth;
+        }
 
-    
-<link rel="stylesheet" href="/longxiang-ai/css/style.css">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.6;
+        }
 
-    <!-- rss -->
-    
-    
-    <!-- jquery -->
-    
-<script src="/longxiang-ai/lib/jquery/jquery.min.js"></script>
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
 
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content .affiliation {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .affiliation a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .hero-content .affiliation a:hover {
+            text-decoration: underline;
+        }
+
+        .hero-content .bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 540px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar-container {
+            position: relative;
+        }
+
+        .avatar {
+            width: 320px;
+            height: 320px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+        }
+
+        .avatar-decoration {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 20px;
+            left: 20px;
+            border-radius: 24px;
+            border: 2px dashed var(--border);
+            z-index: -1;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Research Section */
+        #research {
+            background: var(--bg-secondary);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .research-card {
+            background: var(--bg-primary);
+            padding: 1.75rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .research-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Publications Section */
+        #publications {
+            background: var(--bg-primary);
+        }
+
+        .publication {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .publication:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .pub-image {
+            width: 180px;
+            height: 120px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .pub-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .pub-content .authors {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-content .authors strong {
+            color: var(--primary);
+        }
+
+        .pub-content .venue {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .pub-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item .icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .contact-item .info {
+            flex: 1;
+        }
+
+        .contact-item .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item .value {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: var(--text-muted);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .bio {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-content .affiliation {
+                justify-content: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .avatar {
+                width: 240px;
+                height: 240px;
+                font-size: 6rem;
+            }
+
+            .publication {
+                grid-template-columns: 1fr;
+            }
+
+            .pub-image {
+                width: 100%;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
 <body>
-    <div class="banner">
-<div id="blogtitel" class="blogtitel">longxiang-ai</div>
-<ul id="wrapper" class="wrapper">
-  <div class="sun">
-    <div class="star"></div>
-  </div>
-  <div class="mercury">
-    <div class="planet">
-      <div class="shadow"></div>
-    </div>
-  </div>
-  <div class="venus">
-    <div class="planet">
-      <div class="shadow"></div>
-    </div>
-  </div>
-  <div class="earth">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="mars">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-  <div class="jupiter">
-    <div class="planet"><div class="shadow"></div></div>
-  </div>
-</ul>
-</div>
-
-    <div class="background">
-      
-      <div class="content index width mx-auto px2 my4">
-          
-            <header id="header">
-  <a href="/longxiang-ai/">
-  
-    
-      <div id="logo" style="background-image: url(/longxiang-ai/images/logo.png);"></div>
-    
-  
-    <div id="title">
-      <h1>longxiang-ai</h1>
-    </div>
-  </a>
-  <div id="nav">
-    <ul>
-      <li class="icon">
-        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
-      </li>
-       
-        <li><a href="/longxiang-ai/home/">Home</a></li>
-       
-        <li><a href="/longxiang-ai/about/">About</a></li>
-       
-        <li><a href="/longxiang-ai/archives/">Writing</a></li>
-       
-        <li><a target="_blank" rel="noopener" href="http://github.com/longxiang-ai">Projects</a></li>
-      
-    </ul>
-  </div>
-</header>
-
-          
-          <section id="about">
-  
-  <p style="display: inline">
-    
-      Find me on
-      <ul id="sociallinks">
-        
-          <li><a class="icon" target="_blank" href="https://github.com/longxiang-ai" title="github"><i class="fa fa-github"></i></a></li>
-        
-          <li><a class="icon" target="_blank" href="/longxiang-ai/" title="twitter"><i class="fa fa-twitter"></i></a></li>
-        
-          <li><a class="icon" target="_blank" href="/longxiang-ai/" title="facebook"><i class="fa fa-facebook"></i></a></li>
-        
-          <li><a class="icon" target="_blank" href="/longxiang-ai/" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
-        
-      </ul>.
-    
-  </p>
-</section>
-
-<section id="writing">
-  <span class="h1"><a href="/longxiang-ai/archives">Writing</a></span>
-  <ul class="post-list">
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2023-09-22T12:19:23.000Z" itemprop="datePublished">2023-09-22</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/longxiang-ai/2023/09/22/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/">重装系统</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2023-09-14T05:13:20.000Z" itemprop="datePublished">2023-09-14</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/longxiang-ai/2023/09/14/cmake%E8%B8%A9%E5%9D%91%E7%BB%8F%E5%8E%86/">cmake踩坑经历</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2023-09-12T16:07:05.000Z" itemprop="datePublished">2023-09-13</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/longxiang-ai/2023/09/13/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/">三维重建相关论文</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2023-09-12T15:26:02.000Z" itemprop="datePublished">2023-09-12</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/longxiang-ai/2023/09/12/ubuntu%E7%B3%BB%E7%BB%9F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">ubuntu系统常用命令</a>
-    
-
-
-</span>
-      </li>
-    
-      <li class="post-item">
-        
-    <div class="meta">
-        <time datetime="2023-09-05T12:21:03.000Z" itemprop="datePublished">2023-09-05</time>
-    </div>
-
-
-        <span>
-    
-        <a class="" href="/longxiang-ai/2023/09/05/%E7%9B%B8%E6%9C%BA%E5%8F%82%E6%95%B0%E4%B8%8E%E5%9D%90%E6%A0%87%E8%BD%AC%E6%8D%A2/">相机参数与坐标转换</a>
-    
-
-
-</span>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-      </div>
-      
-      <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2023 longxiang
-  </div>
-  <div class="footer-right">
+    <!-- Navigation -->
     <nav>
-      <ul>
-         
-          <li><a href="/longxiang-ai/home/">Home</a></li>
-         
-          <li><a href="/longxiang-ai/about/">About</a></li>
-         
-          <li><a href="/longxiang-ai/archives/">Writing</a></li>
-         
-          <li><a target="_blank" rel="noopener" href="http://github.com/longxiang-ai">Projects</a></li>
-        
-      </ul>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Mingwei Li</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-  </div>
-</footer>
 
-      
-<script src="/longxiang-ai/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Mingwei Li</h1>
+                <p class="subtitle">李明伟</p>
+                <p class="affiliation">
+                    <i class="fas fa-graduation-cap"></i>
+                    Ph.D. Student @ <a href="https://www.zju.edu.cn/" target="_blank">Zhejiang University</a>
+                </p>
+                <p class="bio">
+                    I am a third-year Ph.D. student at Zhejiang University, advised by Prof. <a href="https://person.zju.edu.cn/yiyang" target="_blank" style="color: var(--primary);">Yi Yang</a>. 
+                    My research focuses on <strong>3D Computer Vision</strong> and <strong>Deep Learning</strong>, 
+                    with particular interests in 3D reconstruction, surface normal estimation for transparent objects, 
+                    and generative models.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/longxiang-ai" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=EQMVZh4AAAAJ" target="_blank" title="Google Scholar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="mailto:mingweili@zju.edu.cn" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="avatar-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Research Section -->
+    <section id="research">
+        <div class="section-container">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>3D/4D Reconstruction</h3>
+                    <p>Multi-view stereo, Neural Radiance Fields (NeRF), and 3D Gaussian Splatting for high-quality scene reconstruction.</p>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <i class="fas fa-glass-water"></i>
+                    </div>
+                    <h3>Transparent Object Understanding</h3>
+                    <p>Surface normal estimation for transparent and reflective objects using foundation models.</p>
+                </div>
+                <div class="research-card">
+                    <div class="icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Generation</h3>
+                    <p>Large-scale video generation models (e.g., Wan2.1) for high-quality video synthesis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="/longxiang-ai/js/main.js"></script>
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="section-container">
+            <h2 class="section-title">Publications</h2>
+            
+            <div class="publication">
+                <div class="pub-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    BideDPO<br>ICLR 2026
+                </div>
+                <div class="pub-content">
+                    <h3>BideDPO: Conditional Image Generation with Simultaneous Text and Condition Alignment</h3>
+                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yu Lu, Yunqiu Xu, Zhizhong Wang, Zeyi Huang, Yi Yang</p>
+                    <p class="venue">ICLR 2026</p>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2511.19268" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        <a href="https://limuloo.github.io/BideDPO/" target="_blank">
+                            <i class="fas fa-globe"></i> Project
+                        </a>
+                        <a href="https://github.com/limuloo/BideDPO" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://openreview.net/forum?id=DNBlGOsIxn" target="_blank">
+                            <i class="fas fa-comments"></i> OpenReview
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Google Analytics -->
+            <div class="publication">
+                <div class="pub-image">
+                    TSGS<br>ACM MM 2025
+                </div>
+                <div class="pub-content">
+                    <h3>TSGS: Improving Gaussian Splatting for Transparent Surface Reconstruction via Normal and De-lighting Priors</h3>
+                    <p class="authors"><strong>Mingwei Li</strong>, Pu Pang, Hehe Fan, Hua Huang, Yi Yang</p>
+                    <p class="venue">ACM Multimedia 2025</p>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2504.12799" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        <a href="https://longxiang-ai.github.io/TSGS/" target="_blank">
+                            <i class="fas fa-globe"></i> Project
+                        </a>
+                        <a href="https://github.com/longxiang-ai/TSGS" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<!-- Disqus Comments -->
+            <div class="publication">
+                <div class="pub-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    DreamRenderer<br>ICCV 2025
+                </div>
+                <div class="pub-content">
+                    <h3>DreamRenderer: Taming Multi-Instance Attribute Control in Large-Scale Text-to-Image Models</h3>
+                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang</p>
+                    <p class="venue">ICCV 2025</p>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2503.12885" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        <a href="https://limuloo.github.io/DreamRenderer/" target="_blank">
+                            <i class="fas fa-globe"></i> Project
+                        </a>
+                        <a href="https://github.com/limuloo/DreamRenderer" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
 
+            <div class="publication">
+                <div class="pub-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    Human101<br>arXiv 2023
+                </div>
+                <div class="pub-content">
+                    <h3>Human101: Training 100+FPS Human Gaussians in 100s from 1 View</h3>
+                    <p class="authors"><strong>Mingwei Li</strong>, Jiachen Tao, Zongxin Yang, Yi Yang</p>
+                    <p class="venue">arXiv 2023</p>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2312.15258" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        <a href="https://longxiang-ai.github.io/Human101/" target="_blank">
+                            <i class="fas fa-globe"></i> Project
+                        </a>
+                        <a href="https://github.com/longxiang-ai/Human101" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-grid">
+                <a href="mailto:mingweili@zju.edu.cn" class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info">
+                        <p class="label">Email</p>
+                        <p class="value">mingweili@zju.edu.cn</p>
+                    </div>
+                </a>
+                <a href="https://github.com/longxiang-ai" target="_blank" class="contact-item">
+                    <div class="icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="info">
+                        <p class="label">GitHub</p>
+                        <p class="value">longxiang-ai</p>
+                    </div>
+                </a>
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div class="info">
+                        <p class="label">Location</p>
+                        <p class="value">Hangzhou, China</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mingwei Li. All rights reserved.</p>
+    </footer>
 </body>
 </html>
