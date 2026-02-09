@@ -338,6 +338,47 @@
             height: 100%;
             object-fit: contain;
             border-radius: 12px;
+            cursor: zoom-in;
+            transition: transform 0.2s;
+        }
+
+        /* Image zoom overlay */
+        .img-zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .img-zoom-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .img-zoom-overlay img {
+            max-width: 85%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            background: #ffffff;
+            padding: 1rem;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .img-zoom-overlay.active img {
+            transform: scale(1);
         }
 
         .pub-content h3 {
@@ -781,6 +822,30 @@
             font-style: normal;
         }
 
+        /* University badge - override .social-links a styles */
+        .social-links a.university-badge {
+            width: auto;
+            height: 44px;
+            padding: 0 6px;
+            background: none;
+            border-radius: 0;
+        }
+
+        .social-links a.university-badge:hover {
+            background: none;
+            transform: translateY(-2px);
+        }
+
+        .university-badge img {
+            height: 32px;
+            object-fit: contain;
+            opacity: 1;
+        }
+
+        .social-links a.university-badge:hover img {
+            opacity: 1;
+        }
+
         @media (max-width: 600px) {
             .education-item {
                 flex-direction: column;
@@ -834,13 +899,14 @@
                     <a href="mailto:mingweili@zju.edu.cn" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
+                    <a href="https://www.zju.edu.cn/" target="_blank" class="university-badge" title="Zhejiang University">
+                        <img src="images/zhejianguniversity.png" alt="Zhejiang University">
+                    </a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="avatar-container">
-                    <div class="avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
+                    <img class="avatar" src="images/self.png" alt="Mingwei Li">
                     <div class="avatar-decoration"></div>
                 </div>
             </div>
@@ -1197,6 +1263,11 @@
         </div>
     </section>
 
+    <!-- Image Zoom Overlay -->
+    <div class="img-zoom-overlay" id="imgZoomOverlay">
+        <img id="imgZoomTarget" src="" alt="Zoomed image">
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Mingwei Li. All rights reserved.</p>
@@ -1254,6 +1325,32 @@
             if (!title.classList.contains('fade-in')) {
                 title.classList.add('fade-in');
                 observer.observe(title);
+            }
+        });
+
+        // Image zoom on click
+        const zoomOverlay = document.getElementById('imgZoomOverlay');
+        const zoomTarget = document.getElementById('imgZoomTarget');
+
+        document.querySelectorAll('.pub-image img').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                zoomTarget.src = img.src;
+                zoomTarget.alt = img.alt;
+                zoomOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        zoomOverlay.addEventListener('click', () => {
+            zoomOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && zoomOverlay.classList.contains('active')) {
+                zoomOverlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
