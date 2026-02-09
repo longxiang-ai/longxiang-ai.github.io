@@ -18,8 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" href="/images/favicon-32.png" type="image/png">
+    <link rel="icon" type="image/png" href="/images/favicon-32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
     
     <style>
         :root {
@@ -616,6 +618,162 @@
             background: #fef3c7;
             color: #92400e;
         }
+
+        .badge-award {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        /* Education Section */
+        #education {
+            background: var(--bg-secondary);
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .education-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .edu-period {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+            min-width: 130px;
+            padding-top: 2px;
+        }
+
+        .edu-content h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-content .edu-detail {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-content .edu-info {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .edu-content .edu-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .edu-content .edu-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Awards Section */
+        #awards {
+            background: var(--bg-secondary);
+        }
+
+        .awards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .award-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            align-items: flex-start;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .award-item:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .award-year {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+            min-width: 50px;
+            padding-top: 1px;
+        }
+
+        .award-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .award-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Academic Services Section */
+        #services {
+            background: var(--bg-primary);
+        }
+
+        .services-content {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .services-content strong {
+            color: var(--text-primary);
+        }
+
+        /* Publication description */
+        .pub-content .pub-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Venue badge */
+        .venue-badge {
+            display: inline-block;
+            padding: 0.1rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            background: #dcfce7;
+            color: #166534;
+            margin-left: 0.5rem;
+            font-style: normal;
+        }
+
+        @media (max-width: 600px) {
+            .education-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .edu-period {
+                min-width: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -625,9 +783,9 @@
             <a href="#" class="nav-logo">Mingwei Li</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
                 <li><a href="#news">News</a></li>
                 <li><a href="#publications">Publications</a></li>
+                <li><a href="#awards">Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -644,10 +802,11 @@
                     Ph.D. Student @ <a href="https://www.zju.edu.cn/" target="_blank">Zhejiang University</a>
                 </p>
                 <p class="bio">
-                    I am a third-year Ph.D. student at Zhejiang University, advised by Prof. <a href="https://person.zju.edu.cn/yiyang" target="_blank" style="color: var(--primary);">Yi Yang</a>. 
-                    My research focuses on <strong>3D Computer Vision</strong> and <strong>Deep Learning</strong>, 
-                    with particular interests in 3D reconstruction, surface normal estimation for transparent objects, 
-                    and generative models.
+                    I am a third-year Ph.D. student at <a href="https://www.zju.edu.cn/" target="_blank" style="color: var(--primary);">Zhejiang University</a> in Hangzhou, China, advised by 
+                    <a href="https://person.zju.edu.cn/yiyang" target="_blank" style="color: var(--primary);">Prof. Yi Yang</a>. 
+                    My research interests include <strong>3D Computer Vision</strong>, <strong>controllable image generation</strong>, 
+                    <strong>digital human reconstruction & generation</strong>, and <strong>embodied intelligence</strong>.
+                    Prior to that, I obtained my B.Sc. in Artificial Intelligence from Zhejiang University in 2023 (Outstanding Graduate, ranked 2nd in major).
                 </p>
                 <div class="social-links">
                     <a href="https://github.com/longxiang-ai" target="_blank" title="GitHub">
@@ -718,7 +877,7 @@
                     <span class="news-date">2025.07</span>
                     <div class="news-content">
                         <span class="news-badge badge-accepted">Accepted</span>
-                        <a href="https://longxiang-ai.github.io/TSGS/" target="_blank">TSGS</a> accepted to ACM Multimedia 2025!
+                        <a href="https://longxiang-ai.github.io/TSGS/" target="_blank">TSGS</a> accepted to ACM Multimedia 2025 as <strong>Oral Presentation</strong>!
                     </div>
                 </div>
                 <div class="news-item fade-in stagger-3">
@@ -729,10 +888,57 @@
                     </div>
                 </div>
                 <div class="news-item fade-in stagger-4">
+                    <span class="news-date">2024.10</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-award">Award</span>
+                        Won <strong>National First Prize</strong> in the 6th "Huawei Cup" Graduate AI Innovation Competition (Rank 4/2618, Top 0.15%).
+                    </div>
+                </div>
+                <div class="news-item fade-in">
                     <span class="news-date">2023.12</span>
                     <div class="news-content">
                         <span class="news-badge badge-released">Released</span>
                         <a href="https://longxiang-ai.github.io/Human101/" target="_blank">Human101</a> paper and code released on arXiv.
+                    </div>
+                </div>
+                <div class="news-item fade-in">
+                    <span class="news-date">2023.06</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-new">Milestone</span>
+                        Graduated from Zhejiang University with B.Sc. in Artificial Intelligence (<strong>Outstanding Graduate</strong>).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <div class="edu-period">2024.06 - Present</div>
+                    <div class="edu-content">
+                        <h3>Zhejiang University</h3>
+                        <p class="edu-detail">Ph.D. in Artificial Intelligence, College of Computer Science and Technology</p>
+                        <p class="edu-info">Advisor: <a href="https://person.zju.edu.cn/yiyang" target="_blank">Prof. Yi Yang</a> · Direct Ph.D. from Master's program</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="edu-period">2023.09 - 2024.06</div>
+                    <div class="edu-content">
+                        <h3>Zhejiang University</h3>
+                        <p class="edu-detail">M.Sc. in Computer Science and Technology, College of Computer Science and Technology</p>
+                        <p class="edu-info">Advisor: <a href="https://person.zju.edu.cn/yiyang" target="_blank">Prof. Yi Yang</a> · Transferred to Ph.D. after one year</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="edu-period">2019.09 - 2023.06</div>
+                    <div class="edu-content">
+                        <h3>Zhejiang University</h3>
+                        <p class="edu-detail">B.Sc. in Artificial Intelligence, College of Computer Science and Technology</p>
+                        <p class="edu-info">Outstanding Graduate · Ranked 2nd in major · Recommended for graduate school</p>
                     </div>
                 </div>
             </div>
@@ -752,6 +958,7 @@
                     <h3>BideDPO: Conditional Image Generation with Simultaneous Text and Condition Alignment</h3>
                     <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yu Lu, Yunqiu Xu, Zhizhong Wang, Zeyi Huang, Yi Yang</p>
                     <p class="venue">ICLR 2026</p>
+                    <p class="pub-desc">We propose a bidirectionally decoupled DPO method to resolve text-condition conflicts in controllable text-to-image generation, significantly improving both text and condition adherence.</p>
                     <div class="pub-links">
                         <a href="https://arxiv.org/abs/2511.19268" target="_blank">
                             <i class="fas fa-file-pdf"></i> Paper
@@ -776,7 +983,8 @@
                 <div class="pub-content">
                     <h3>TSGS: Improving Gaussian Splatting for Transparent Surface Reconstruction via Normal and De-lighting Priors</h3>
                     <p class="authors"><strong>Mingwei Li</strong>, Pu Pang, Hehe Fan, Hua Huang, Yi Yang</p>
-                    <p class="venue">ACM Multimedia 2025</p>
+                    <p class="venue">ACM Multimedia 2025 <span class="venue-badge">Oral</span></p>
+                    <p class="pub-desc">We introduce normal and de-lighting diffusion priors to optimize transparent surface reconstruction, and design a sliding-window depth extraction method to improve geometric accuracy and rendering quality for transparent objects.</p>
                     <div class="pub-links">
                         <a href="https://arxiv.org/abs/2504.12799" target="_blank">
                             <i class="fas fa-file-pdf"></i> Paper
@@ -799,6 +1007,7 @@
                     <h3>DreamRenderer: Taming Multi-Instance Attribute Control in Large-Scale Text-to-Image Models</h3>
                     <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang</p>
                     <p class="venue">ICCV 2025</p>
+                    <p class="pub-desc">This work introduces text attribute hard-binding, image attribute hard-binding, and image attribute soft-binding mechanisms to enhance control precision in conditional text-to-image generation, achieving state-of-the-art on COCO-MIG benchmark.</p>
                     <div class="pub-links">
                         <a href="https://arxiv.org/abs/2503.12885" target="_blank">
                             <i class="fas fa-file-pdf"></i> Paper
@@ -821,6 +1030,7 @@
                     <h3>Human101: Training 100+FPS Human Gaussians in 100s from 1 View</h3>
                     <p class="authors"><strong>Mingwei Li</strong>, Jiachen Tao, Zongxin Yang, Yi Yang</p>
                     <p class="venue">arXiv 2023</p>
+                    <p class="pub-desc">Combining 3D Gaussian Splatting with human body priors, we achieve fast dynamic human reconstruction from monocular video with rendering speeds exceeding 100+ FPS.</p>
                     <div class="pub-links">
                         <a href="https://arxiv.org/abs/2312.15258" target="_blank">
                             <i class="fas fa-file-pdf"></i> Paper
@@ -833,6 +1043,71 @@
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                    MARVEL<br>Under Review
+                </div>
+                <div class="pub-content">
+                    <h3>MARVEL: Multi-scale Transformer-based Rendering with Voxel-based Efficient Learning for Avatars</h3>
+                    <p class="authors">Jiachen Tao, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang</p>
+                    <p class="venue">Under Review</p>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-image" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);">
+                    3D Watermark<br>Under Review
+                </div>
+                <div class="pub-content">
+                    <h3>Collaborative Hybrid Gaussian Editing for 3D Consistent Watermark Steganography</h3>
+                    <p class="authors"><strong>Mingwei Li</strong>, et al.</p>
+                    <p class="venue">Under Review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="section-container">
+            <h2 class="section-title">Awards & Honors</h2>
+            <div class="awards-list">
+                <div class="award-item">
+                    <span class="award-year">2024</span>
+                    <span class="award-text"><strong>National First Prize</strong> in the 6th "Huawei Cup" Graduate AI Innovation Competition (Team Leader, Rank 4/2618, Top 0.15%)</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2024</span>
+                    <span class="award-text"><strong>Outstanding Graduate Student Cadre & Five-Good Graduate Student</strong>, College of Computer Science, Zhejiang University</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2023</span>
+                    <span class="award-text"><strong>Outstanding Graduate</strong>, Zhejiang University</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2023</span>
+                    <span class="award-text"><strong>Outstanding Undergraduate Thesis</strong>, College of Computer Science, Zhejiang University</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2021</span>
+                    <span class="award-text"><strong>First-class Scholarship & Outstanding Student</strong>, Zhejiang University (2019-2020, 2020-2021)</span>
+                </div>
+                <div class="award-item">
+                    <span class="award-year">2020</span>
+                    <span class="award-text"><strong>Second Prize</strong> in Zhejiang Province College Physics Innovation Competition</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Services Section -->
+    <section id="services">
+        <div class="section-container">
+            <h2 class="section-title">Academic Services</h2>
+            <div class="services-content">
+                <p><strong>Conference Reviewer:</strong> AAAI, ICML</p>
             </div>
         </div>
     </section>
@@ -875,7 +1150,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Mingwei Li. All rights reserved.</p>
+        <p>&copy; 2026 Mingwei Li. All rights reserved.</p>
     </footer>
 
     <script>
@@ -912,6 +1187,16 @@
 
         document.querySelectorAll('.contact-item').forEach((item, index) => {
             item.classList.add('fade-in', `stagger-${index + 1}`);
+            observer.observe(item);
+        });
+
+        document.querySelectorAll('.education-item').forEach((item, index) => {
+            item.classList.add('fade-in', `stagger-${index + 1}`);
+            observer.observe(item);
+        });
+
+        document.querySelectorAll('.award-item').forEach((item, index) => {
+            item.classList.add('fade-in', `stagger-${(index % 4) + 1}`);
             observer.observe(item);
         });
 
