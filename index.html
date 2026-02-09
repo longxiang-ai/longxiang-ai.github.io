@@ -305,7 +305,7 @@
 
         .publication {
             display: grid;
-            grid-template-columns: 180px 1fr;
+            grid-template-columns: 220px 1fr;
             gap: 2rem;
             padding: 2rem;
             background: var(--bg-secondary);
@@ -319,10 +319,10 @@
         }
 
         .pub-image {
-            width: 180px;
-            height: 120px;
+            width: 220px;
+            min-height: 140px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-tertiary);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -330,7 +330,14 @@
             font-weight: 600;
             font-size: 0.9rem;
             text-align: center;
-            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .pub-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
         }
 
         .pub-content h3 {
@@ -744,6 +751,15 @@
             color: var(--text-primary);
         }
 
+        /* Corresponding author icon */
+        .corresponding-icon {
+            font-size: 0.65em;
+            color: var(--text-muted);
+            margin-left: 3px;
+            vertical-align: super;
+            cursor: help;
+        }
+
         /* Publication description */
         .pub-content .pub-desc {
             font-size: 0.9rem;
@@ -806,7 +822,7 @@
                     <a href="https://person.zju.edu.cn/yiyang" target="_blank" style="color: var(--primary);">Prof. Yi Yang</a>. 
                     My research interests include <strong>3D Computer Vision</strong>, <strong>controllable image generation</strong>, 
                     <strong>digital human reconstruction & generation</strong>, and <strong>embodied intelligence</strong>.
-                    Prior to that, I obtained my B.Sc. in Artificial Intelligence from Zhejiang University in 2023 (Outstanding Graduate, ranked 2nd in major).
+                    Prior to that, I obtained my B.Sc. in Artificial Intelligence from Zhejiang University in 2023 (Outstanding Graduate, ranked 2nd in major). I was also a member of the Mixed Class at <a href="https://zh.wikipedia.org/zh-hans/%E6%B5%99%E6%B1%9F%E5%A4%A7%E5%AD%A6%E7%AB%BA%E5%8F%AF%E6%A1%A2%E5%AD%A6%E9%99%A2" target="_blank" style="color: var(--primary);">Chu Kochen Honors College (CKC)</a> of Zhejiang University.
                 </p>
                 <div class="social-links">
                     <a href="https://github.com/longxiang-ai" target="_blank" title="GitHub">
@@ -867,6 +883,13 @@
             <h2 class="section-title fade-in">News</h2>
             <div class="news-list">
                 <div class="news-item fade-in stagger-1">
+                    <span class="news-date">2026.02</span>
+                    <div class="news-content">
+                        <span class="news-badge badge-released">Released</span>
+                        <a href="https://github.com/longxiang-ai/TransNormal" target="_blank">TransNormal</a> paper, code, and dataset released. <a href="https://arxiv.org/abs/2602.00839" target="_blank">[arXiv]</a>
+                    </div>
+                </div>
+                <div class="news-item fade-in stagger-2">
                     <span class="news-date">2026.01</span>
                     <div class="news-content">
                         <span class="news-badge badge-accepted">Accepted</span>
@@ -951,12 +974,38 @@
             <h2 class="section-title">Publications</h2>
             
             <div class="publication">
-                <div class="pub-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                    BideDPO<br>ICLR 2026
+                <div class="pub-image">
+                    <img src="images/papers/transnormal.png" alt="TransNormal">
+                </div>
+                <div class="pub-content">
+                    <h3>TransNormal: Dense Visual Semantics for Diffusion-based Transparent Object Normal Estimation</h3>
+                    <p class="authors"><strong>Mingwei Li</strong>, Hehe Fan, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
+                    <p class="venue">arXiv 2026</p>
+                    <p class="pub-desc">We leverage dense visual semantics to guide diffusion-based single-step normal prediction with wavelet regularization for transparent object normal estimation.</p>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2602.00839" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        <a href="https://longxiang-ai.github.io/TransNormal/" target="_blank">
+                            <i class="fas fa-globe"></i> Project
+                        </a>
+                        <a href="https://github.com/longxiang-ai/TransNormal" target="_blank">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://huggingface.co/datasets/Longxiang-ai/TransNormal-Synthetic" target="_blank">
+                            <i class="fas fa-database"></i> Dataset
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-image">
+                    <img src="images/papers/bidedpo.png" alt="BideDPO">
                 </div>
                 <div class="pub-content">
                     <h3>BideDPO: Conditional Image Generation with Simultaneous Text and Condition Alignment</h3>
-                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yu Lu, Yunqiu Xu, Zhizhong Wang, Zeyi Huang, Yi Yang</p>
+                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yu Lu, Yunqiu Xu, Zhizhong Wang, Zeyi Huang, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
                     <p class="venue">ICLR 2026</p>
                     <p class="pub-desc">We propose a bidirectionally decoupled DPO method to resolve text-condition conflicts in controllable text-to-image generation, significantly improving both text and condition adherence.</p>
                     <div class="pub-links">
@@ -978,11 +1027,11 @@
 
             <div class="publication">
                 <div class="pub-image">
-                    TSGS<br>ACM MM 2025
+                    <img src="images/papers/tsgs.png" alt="TSGS">
                 </div>
                 <div class="pub-content">
                     <h3>TSGS: Improving Gaussian Splatting for Transparent Surface Reconstruction via Normal and De-lighting Priors</h3>
-                    <p class="authors"><strong>Mingwei Li</strong>, Pu Pang, Hehe Fan, Hua Huang, Yi Yang</p>
+                    <p class="authors"><strong>Mingwei Li</strong>, Pu Pang, Hehe Fan, Hua Huang, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
                     <p class="venue">ACM Multimedia 2025 <span class="venue-badge">Oral</span></p>
                     <p class="pub-desc">We introduce normal and de-lighting diffusion priors to optimize transparent surface reconstruction, and design a sliding-window depth extraction method to improve geometric accuracy and rendering quality for transparent objects.</p>
                     <div class="pub-links">
@@ -1000,12 +1049,12 @@
             </div>
 
             <div class="publication">
-                <div class="pub-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    DreamRenderer<br>ICCV 2025
+                <div class="pub-image">
+                    <img src="images/papers/dreamrenderer.png" alt="DreamRenderer">
                 </div>
                 <div class="pub-content">
                     <h3>DreamRenderer: Taming Multi-Instance Attribute Control in Large-Scale Text-to-Image Models</h3>
-                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang</p>
+                    <p class="authors">Dewei Zhou, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
                     <p class="venue">ICCV 2025</p>
                     <p class="pub-desc">This work introduces text attribute hard-binding, image attribute hard-binding, and image attribute soft-binding mechanisms to enhance control precision in conditional text-to-image generation, achieving state-of-the-art on COCO-MIG benchmark.</p>
                     <div class="pub-links">
@@ -1023,12 +1072,12 @@
             </div>
 
             <div class="publication">
-                <div class="pub-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    Human101<br>arXiv 2023
+                <div class="pub-image">
+                    <img src="images/papers/human101.png" alt="Human101">
                 </div>
                 <div class="pub-content">
                     <h3>Human101: Training 100+FPS Human Gaussians in 100s from 1 View</h3>
-                    <p class="authors"><strong>Mingwei Li</strong>, Jiachen Tao, Zongxin Yang, Yi Yang</p>
+                    <p class="authors"><strong>Mingwei Li</strong>, Jiachen Tao, Zongxin Yang, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
                     <p class="venue">arXiv 2023</p>
                     <p class="pub-desc">Combining 3D Gaussian Splatting with human body priors, we achieve fast dynamic human reconstruction from monocular video with rendering speeds exceeding 100+ FPS.</p>
                     <div class="pub-links">
@@ -1046,12 +1095,12 @@
             </div>
 
             <div class="publication">
-                <div class="pub-image" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-                    MARVEL<br>Under Review
+                <div class="pub-image">
+                    <img src="images/papers/marvel.png" alt="MARVEL">
                 </div>
                 <div class="pub-content">
                     <h3>MARVEL: Multi-scale Transformer-based Rendering with Voxel-based Efficient Learning for Avatars</h3>
-                    <p class="authors">Jiachen Tao, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang</p>
+                    <p class="authors">Jiachen Tao, <strong>Mingwei Li</strong>, Zongxin Yang, Yi Yang<span class="corresponding-icon" title="Corresponding Author"><i class="fas fa-envelope"></i></span></p>
                     <p class="venue">Under Review</p>
                 </div>
             </div>
