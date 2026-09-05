@@ -1,0 +1,12 @@
+{
+  "name": "mingwei-li-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mingwei Li's static research portfolio. Compatible with GitHub Pages.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check js/portfolio.js && python3 scripts/check_site.py"
+  }
+}
